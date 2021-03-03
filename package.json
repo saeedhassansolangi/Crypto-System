@@ -1,0 +1,20 @@
+{
+  "name": "is-semester-final-project",
+  "version": "1.0.0",
+  "description": "This is My IS Semester Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Electron"
+  ],
+  "author": "Saeed Hassan Soalngi",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^11.3.0",
+    "electron-context-menu": "^2.5.0"
+  }
+}

@@ -1,0 +1,131 @@
+/* https://google-webfonts-helper.herokuapp.com/fonts/quicksand?subsets=latin */
+
+/* quicksand-300 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''), url('./fonts/quicksand-v22-latin-300.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/quicksand-v22-latin-300.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* quicksand-500 - latin */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''), url('./fonts/quicksand-v22-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/quicksand-v22-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  /* this will goto the first "@font-face" */
+  font-weight: 300;
+  background-color: #121212;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* this will goto the first "@font-face" */
+  font-weight: 500;
+}
+
+textarea {
+  background-color: #272727 !important;
+  color: #ffffffcb !important;
+
+  outline: none;
+  border: none;
+}
+
+input#forPlainText,
+input#forCipherTextInput,
+input#forImageEncryption {
+  background-color: #272727 !important;
+  width: 50%;
+  padding: 10px 20px;
+  border: none;
+  color: #ffffff;
+  border-radius: 6px;
+  margin: 10px;
+}
+
+.eye-toggle,
+.eye-toggle-forCipher {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  right: 3rem;
+  top: 0.3rem;
+  z-index: 2;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+input#forPlainText:focus,
+input#forCipherTextInput:focus,
+input#forImageEncryption {
+  border: none;
+  outline: none;
+}
+
+/* showme */
+
+.showme,
+.symmetricEncryption,
+.steganographyEncryption {
+  cursor: pointer;
+}
+
+#showMe1,
+#showMe2,
+#showMe3 {
+  font-size: 20px !important;
+}
+
+#showMe1:hover,
+#showMe2:hover,
+#showMe3:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#encryptButton,
+#dcryptButton,
+#encryptionForImage,
+#saveImage {
+  color: #fff;
+  background-color: #272727;
+  padding: 10px 20px;
+  border: none;
+  margin: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+}
+
+#encryptButton:hover,
+#dcryptButton:hover,
+#encryptionForImage:hover,
+#saveImage:hover {
+  background-color: rgb(51, 50, 50);
+  opacity: 90%;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  color: gray;
+}
+
+#selectImageForEncryption,
+#selectImageForDecryption {
+  padding: 10px 20px;
+  background-color: #272727;
+  border-radius: 5px;
+  margin-top: 5px;
+}
