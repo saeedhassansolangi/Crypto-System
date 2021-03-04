@@ -25,24 +25,33 @@ const iv = crypto.randomBytes(16);
 // console.log('iv here', iv.toString('hex'));
 
 const encryptText = function (texts, secretKey) {
-  // encrypt content
-  const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
+  try {
+    // encrypt content
+    const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
 
-  // The cipher.update() method can be called multiple times with new data until cipher.final() is called. Calling cipher.update() after cipher.final() will result in an error being thrown.
-  const encrypted = Buffer.concat([cipher.update(texts), cipher.final()]);
-  const hash = encrypted.toString('hex');
-  // console.log(hash);
-  return hash;
+    // The cipher.update() method can be called multiple times with new data until cipher.final() is called. Calling cipher.update() after cipher.final() will result in an error being thrown.
+
+    const encrypted = Buffer.concat([cipher.update(texts), cipher.final()]);
+    const hash = encrypted.toString('hex');
+    // console.log(hash);
+    return hash;
+  } catch (error) {
+    console.log('ERROR While Encryption', error.message);
+  }
 };
 
 // decrypt content
 const dcryptHash = function (encryptedText, key) {
-  const decipher = crypto.createDecipheriv(algorithm, key, iv);
-  const decrpyted = Buffer.concat([
-    decipher.update(Buffer.from(encryptedText, 'hex')),
-    decipher.final(),
-  ]);
-  return decrpyted.toString();
+  try {
+    const decipher = crypto.createDecipheriv(algorithm, key, iv);
+    const decrpyted = Buffer.concat([
+      decipher.update(Buffer.from(encryptedText, 'hex')),
+      decipher.final(),
+    ]);
+    return decrpyted.toString();
+  } catch (error) {
+    console.log('ERROR While Decryption', error.message);
+  }
 };
 
 module.exports = {

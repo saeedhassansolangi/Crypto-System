@@ -129,3 +129,10 @@ input#forImageEncryption {
   border-radius: 5px;
   margin-top: 5px;
 }
+
+.decryptInputMessage,
+.encryptInputMessage {
+  color: red;
+  padding: 10px;
+  font-size: 10px;
+}
