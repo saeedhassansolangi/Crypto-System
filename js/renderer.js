@@ -96,6 +96,10 @@ inputForCipher.addEventListener('input', function (e) {
     message.innerText = `Secret Key Must be 16 Bytes and you are ${
       32 - inputValue.length
     } bits left`;
+  } else if (inputValue.length > 32) {
+    this.style.border = '2px solid red';
+    message.innerText = `Secret Key Must be 16 Bytes, not more than 32 bits`;
+    message.style.color = 'red';
   } else {
     this.style.border = '2px solid green';
     message.innerText = `Everything is Okay`;
@@ -115,6 +119,10 @@ inputForPlainText.addEventListener('input', function (e) {
     encryptInputMessage.innerText = `Secret Must be 16 Bytes and you are ${
       32 - inputValue.length
     } bits left`;
+  } else if (inputValue.length > 32) {
+    this.style.border = '2px solid red';
+    encryptInputMessage.innerText = `Secret Key Must be 16 Bytes, not more than 32 bits`;
+    encryptInputMessage.style.color = 'red';
   } else {
     this.style.border = '2px solid green';
     encryptInputMessage.innerText = `Everything is Okay`;
