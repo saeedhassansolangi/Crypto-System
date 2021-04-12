@@ -161,3 +161,5 @@ function handleImage2(e) {
   };
   reader2.readAsDataURL(e.target.files[0]);
 }
+
+// this is new branch
