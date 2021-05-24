@@ -27,8 +27,9 @@ app.on('ready', () => {
   console.log('App is ready');
 
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 700,
+    resizable:true,
     icon: path.join(__dirname, 'Database-Encryption-icon.png'),
     webPreferences: {
       nodeIntegration: true,
