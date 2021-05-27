@@ -5,7 +5,6 @@ const iv = crypto.randomBytes(16);
 const encryptText = function (plainText, keyLength, secretKey) {
   try {
     const algorithm = `aes-${keyLength}-ctr`;
-    // encrypt content
     const cipher = crypto.createCipheriv(algorithm, secretKey, iv);
     const encrypted = Buffer.concat([cipher.update(plainText), cipher.final()]);
     const hash = encrypted.toString('hex');
