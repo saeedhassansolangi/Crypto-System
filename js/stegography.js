@@ -36,8 +36,8 @@ const handleEncryption = function (e) {
       sourceText.width = img.width;
       sourceText.height = img.height;
 
-      // setting font for the Text that will be encrypted
-      sourceImageCanvas.font = '40px Arial';
+      // setting up font size for the Text that will be encrypted inside the image
+      sourceTextCanvas.font = '20px Arial';
 
       // setting the text for image
       let messageText;

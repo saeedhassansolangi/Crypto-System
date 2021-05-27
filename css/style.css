@@ -42,10 +42,11 @@ h6 {
 textarea {
   background-color: #272727 !important;
   color: #ffffffcb !important;
-
   outline: none;
   border: none;
 }
+
+
 
 input#forPlainText,
 input#forCipherTextInput,
