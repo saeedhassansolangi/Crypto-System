@@ -42,6 +42,7 @@
         </div>
         <div class="col" id="main">
           <div id="symmetricEncryptionToggle1" style="display: block">
+            <!-- Symmetric Encryption for Encryption -->
             <div class="forSymmerticEncryption">
               <h6>Symmetric Encryption</h6>
               <div class="form-group" style="width: 95%; margin: 0 auto">
@@ -54,7 +55,13 @@
                 <span class="eye-toggle">
                   <i class="fa fa-fw fa-eye" id="if"> </i>
                 </span>
-                <span class="encryptInputMessage"></span>
+                <!-- <span class="encryptInputMessage"></span> -->
+                <label for="">Key Size in Bits</label>
+                <select name="" class="select" id="encryptSelectBox">
+                  <option value="128">128</option>
+                  <option value="192">192</option>
+                  <option value="256">256</option>
+                </select>
               </div>
               <div class="row">
                 <div class="col-md-6">
@@ -100,7 +107,14 @@
                 <span class="eye-toggle-forCipher">
                   <i class="fa fa-fw fa-eye" id="forCipherEye"> </i>
                 </span>
-                <span class="decryptInputMessage"></span>
+                <!-- <span class="decryptInputMessage"></span> -->
+                <label for="">Key Size in Bits</label>
+                <select name="" class="select" id="decryptSelectBox">
+                  <option value="128">128</option>
+
+                  <option value="192">192</option>
+                  <option value="256">256</option>
+                </select>
               </div>
 
               <div class="row">

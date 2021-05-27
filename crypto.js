@@ -3,7 +3,7 @@ const crypto = require('crypto');
 // getting list of all algorithem
 //console.log(crypto.getCiphers());
 
-const algorithem = 'aes-256-ctr';
+const algorithem = 'aes-128-ctr';
 // Symmetric encryption is a type of encryption where only one key (a secret key) is used to both encrypt and decrypt electronic information.
 const secretKey = 'Iam a Secret Key';
 

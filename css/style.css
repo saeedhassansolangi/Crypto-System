@@ -184,3 +184,14 @@ li.nav-item a:hover {
 #enc {
   background-color: #272727;
 }
+
+
+.select{
+  width:120px;
+  padding:5px 0px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #272727;
+  color:#fff;
+  outline:none
+}
