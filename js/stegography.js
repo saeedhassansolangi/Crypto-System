@@ -37,7 +37,7 @@ const handleEncryption = function (e) {
       sourceText.height = img.height;
 
       // setting font for the Text that will be encrypted
-      sourceImageCanvas.font = '30px Arial';
+      sourceImageCanvas.font = '35px Arial';
 
       // setting the text for image
       let messageText;
@@ -106,9 +106,8 @@ document.querySelector('#saveImage').addEventListener('click', function () {
   const { name: baseName, ext: extension } = path.parse(fileName.name);
   const imgUrl = sourceImage.toDataURL();
   var base64Data = imgUrl.replace(/^data:image\/png;base64,/, '');
-  const filePath = `${
-    process.env.HOME
-  }/Desktop/${baseName}${Date.now()}${extension}`;
+  // file path for saving
+  const filePath = `${process.env.HOME}/Desktop/${baseName}${Date.now()}${extension}`;
   document.querySelector('#filename').innerHTML = `<div>
   <h6>File Saved At : </h6>
   <h6 style="background-color:#03dac699; padding: 10px">${filePath}</h6>

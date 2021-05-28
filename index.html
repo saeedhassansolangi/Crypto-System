@@ -13,7 +13,7 @@
 
   <body>
     <div class="container-fluid">
-      <h4 style="text-align: center">Welcome to the NODE CryptoSystem</h4>
+      <h2 class="header">Welcome to the NODE CryptoSystem</h2>
       <div class="row py-3">
         <div class="col-3" id="sticky-sidebar">
           <div class="sticky-top">
@@ -21,21 +21,14 @@
               <li class="nav-item symmetricEncryption">
                 <a class="nav-link active" aria-current="page" href="#">
                   <span class="symmetricEncryption">
-                    Symmetric Encryption and Decryption<i
-                      class="fas fa-arrow-down"
-                      id="showMe1"
-                    ></i
-                  ></span>
+                    Symmetric Encryption and Decryption</span
+                  >
                 </a>
               </li>
               <li class="nav-item steganographyEncryption">
                 <a class="nav-link" href="#">
-                  <span class="steganographyEncryption"
-                    >Stegnograph<i
-                      class="fas fa-arrow-circle-right"
-                      id="showMe2"
-                    ></i></span
-                ></a>
+                  <span class="steganographyEncryption">Stegnograph</span></a
+                >
               </li>
             </ul>
           </div>
@@ -44,7 +37,7 @@
           <div id="symmetricEncryptionToggle1" style="display: block">
             <!-- Symmetric Encryption for Encryption -->
             <div class="forSymmerticEncryption">
-              <h6>Symmetric Encryption</h6>
+              <h5>Symmetric Encryption</h5>
               <div class="form-group" style="width: 95%; margin: 0 auto">
                 <label for="">Write Your Secret key Here</label>
                 <input
@@ -95,7 +88,7 @@
             </div>
 
             <div class="symmetricDcryption">
-              <h6>Symmetric Decryption</h6>
+              <h5>Symmetric Decryption</h5>
 
               <div class="form-group" style="width: 95%; margin: 0 auto">
                 <label for="">Write Your Secret key Here</label>
@@ -162,7 +155,7 @@
                   <textarea
                     class="form-control"
                     id="forImageEncryption"
-                    rows="4"
+                    rows="2"
                   ></textarea>
                 </div>
               </div>
@@ -183,7 +176,7 @@
             </div>
             <div class="container imagesShowHere">
               <div class="row">
-                <div class="col-md-5 mt-2">
+                <div class="col-md-6 mt-2">
                   <h6>Encrypted Image</h6>
                   <canvas
                     class="sourceImage"
@@ -196,7 +189,7 @@
                   <canvas class="sourceText" style="display: none"></canvas>
                 </div>
 
-                <div class="col-md-5 mt-2">
+                <div class="col-md-6 mt-2">
                   <h5>Decrypted Image</h5>
                   <canvas
                     id="imageCanvas2"

@@ -185,13 +185,28 @@ li.nav-item a:hover {
   background-color: #272727;
 }
 
-
-.select{
-  width:120px;
-  padding:5px 0px;
+.select {
+  width: 120px;
+  padding: 5px 0px;
   font-size: 14px;
   border-radius: 5px;
   background-color: #272727;
-  color:#fff;
-  outline:none
+  color: #fff;
+  outline: none;
+}
+
+.header {
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.2em;
+  color:rgba(255, 255, 255, 0.795);
+}
+
+.forSymmerticEncryption,.symmetricDcryption{
+  margin:5px;
+  padding:5px;
+}
+
+h5{
+  color:thistle
 }

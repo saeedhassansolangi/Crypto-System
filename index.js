@@ -18,6 +18,9 @@ contextMenu({
     {
       role: 'cut',
     },
+    {
+      role: 'selectAll',
+    },
   ],
 });
 
