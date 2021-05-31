@@ -39,6 +39,15 @@ h6 {
   font-weight: 500;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #666060a2;
+}
+
 textarea {
   background-color: #272727 !important;
   color: #ffffffcb !important;
@@ -91,6 +100,7 @@ input#forImageEncryption {
 #showMe2,
 #showMe3 {
   font-size: 20px !important;
+  padding: 2px;
 }
 
 #showMe1:hover,
@@ -136,4 +146,68 @@ input#forImageEncryption {
   color: red;
   padding: 10px;
   font-size: 10px;
+}
+
+ul {
+  padding: 20px;
+  border: #272727 solid 2px;
+  text-align: justify;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+}
+
+li.nav-item {
+  border-bottom: 1px solid #272727;
+  padding: 10px;
+}
+
+li.nav-item:last-child {
+  border-bottom: none;
+}
+
+li.nav-item a {
+  color: rgba(255, 255, 255, 0.651) !important;
+}
+
+li.nav-item a {
+  background-color: #272727;
+  border-radius: 5px;
+}
+
+li.nav-item a:hover {
+  background-color: #272727;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.451) !important;
+}
+
+#enc {
+  background-color: #272727;
+}
+
+.select {
+  width: 120px;
+  padding: 5px 0px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: #272727;
+  color: #fff;
+  outline: none;
+}
+
+.header {
+  text-align: center;
+  margin-top: 10px;
+  letter-spacing: 0.2em;
+  color:rgba(255, 255, 255, 0.795);
+}
+
+.forSymmerticEncryption,.symmetricDcryption{
+  margin:5px;
+  padding:5px;
+}
+
+h5{
+  color:thistle
 }

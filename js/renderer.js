@@ -1,15 +1,44 @@
 const electron = require('electron');
 const { ipcRenderer } = electron;
 
-// FOr Encrption
+// FOr Encrpting Texts
 const plainTextArea = document.querySelector('#plainText');
 const encryptButtton = document.querySelector('#encryptButton');
 const cipherTextArea = document.querySelector('#cipherText');
+const inputElementForPlain = document.querySelector('#forPlainText');
+const keyForEncryption = document.querySelector('#encryptSelectBox');
 
 encryptButtton.addEventListener('click', (e) => {
-  encryptInputMessage.innerText = '';
   const plainTextValue = plainTextArea.value;
-  ipcRenderer.send('plainText', plainTextValue);
+  const inputEL = inputElementForPlain.value;
+  const keySize = keyForEncryption.value;
+
+  if (inputEL === '') {
+    alert('Please Provide the Secret Key');
+    return;
+  }
+
+  if (keySize === '128' && inputEL.length !== 16) {
+    alert('Length of Secret Key must be 16 for 128 bits key size');
+    return;
+  }
+
+  if (keySize === '192' && inputEL.length !== 24) {
+    alert('Length of Secret key must be 24 for 192 bits key size');
+    return;
+  }
+
+  if (keySize === '256' && inputEL.length !== 32) {
+    alert('Length of Secret Key must be 32 for 256 bits key size');
+    return;
+  }
+
+  ipcRenderer.send('secretKey', inputEL);
+
+  // sending the plain text to the server
+  ipcRenderer.send('plainText', { plainTextValue, keySize });
+
+  // receiving the encryption and showing that inside the textarea
   ipcRenderer.on('encryptedText', (e, value) => {
     cipherTextArea.value = value;
   });
@@ -19,6 +48,7 @@ encryptButtton.addEventListener('click', (e) => {
 const cipherTextAreaForD = document.querySelector('#cipherTextForD');
 const dcryptButtton = document.querySelector('#dcryptButton');
 const plainTextAreaForD = document.querySelector('#plainTextForD');
+const keyForDecryption = document.querySelector('#decryptSelectBox');
 
 // decrypt encryption message
 const message = document.querySelector('.decryptInputMessage');
@@ -27,15 +57,36 @@ const encryptInputMessage = document.querySelector('.encryptInputMessage');
 dcryptButtton.addEventListener('click', (e) => {
   const secretMessage = document.querySelector('#forCipherTextInput');
 
-  if (!secretMessage.value) {
-    // console.log('Please Provide Secret Key');
-    message.innerText = 'Please Provide Secret Key';
+  const keySize = keyForDecryption.value;
+  const inputEL = secretMessage.value;
+  const cipherText = cipherTextAreaForD.value;
+
+  console.log({ keySize, inputEL, cipherText });
+
+  if (inputEL === '') {
+    alert('Please Provide the Secret Key');
     return;
   }
 
-  message.innerText = '';
+  if (keySize === '128' && inputEL.length !== 16) {
+    alert('Length of Secret Key must be 16 for 128 bits key size');
+    return;
+  }
 
-  ipcRenderer.send('cipherText', cipherTextAreaForD.value);
+  if (keySize === '192' && inputEL.length !== 24) {
+    alert('Length of Secret key must be 24 for 192 bits key size');
+    return;
+  }
+
+  if (keySize === '256' && inputEL.length !== 32) {
+    alert('Length of Secret Key must be 32 for 256 bits key size');
+    return;
+  }
+
+  ipcRenderer.send('secretKey', inputEL);
+
+  ipcRenderer.send('cipherText', { cipherText, keySize });
+
   ipcRenderer.on('plainTextForD', (e, value) => {
     plainTextAreaForD.value = value;
   });
@@ -80,44 +131,5 @@ eyeIconForCipher.addEventListener('click', (e) => {
     i.setAttribute('class', 'svg-inline--fa-eye fa-eye-slash');
   } else {
     i.setAttribute('class', 'svg-inline--fa fa-eye fa-w-18 fa-fw');
-  }
-});
-
-// Checking the Lenght of the Inputs
-const inputForCipher = document.querySelector('#forCipherTextInput');
-
-inputForCipher.addEventListener('input', function (e) {
-  message.innerText = '';
-
-  const inputValue = this.value;
-  if (inputValue.length < 32) {
-    this.style.border = '2px solid red';
-    message.innerText = `Secret Key Must be 16 Bytes and you are ${
-      32 - inputValue.length
-    } bits left`;
-  } else {
-    this.style.border = '2px solid green';
-    message.innerText = `Everything is Okay`;
-    message.style.color = 'green';
-    ipcRenderer.send('secretKey', inputValue);
-  }
-});
-
-// Checking the Lenght of the Inputs
-const inputForPlainText = document.querySelector('#forPlainText');
-
-inputForPlainText.addEventListener('input', function (e) {
-  const inputValue = this.value;
-
-  if (inputValue.length < 32) {
-    this.style.border = '2px solid red';
-    encryptInputMessage.innerText = `Secret Must be 16 Bytes and you are ${
-      32 - inputValue.length
-    } bits left`;
-  } else {
-    this.style.border = '2px solid green';
-    encryptInputMessage.innerText = `Everything is Okay`;
-    encryptInputMessage.style.color = 'green';
-    ipcRenderer.send('secretKey', inputValue);
   }
 });

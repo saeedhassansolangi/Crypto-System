@@ -1,146 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Node CryptoSystem</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <script src="./js/all.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Node CryptoSystem</title>
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/all.min.css">
-  <script src="./js/all.min.js"></script>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-  <div class="container-fluid">
-    <h4 style="text-align: center;">Welcome to the NODE CryptoSystem</h4>
-    <div class="symmetric">
-      <h5>Symmetric Encryption and Decryption
-        <span class="symmetricEncryption"><i class="fas fa-arrow-down" id="showMe1"></i></span>
-      </h5>
-      <div id="symmetricEncryptionToggle1" style="display: block;">
-        <div class="forSymmerticEncryption">
-          <h6>Symmetric Encryption</h6>
-          <div class="form-group" style="width: 95%; margin:0 auto">
-            <label for="">Write Your Secret key Here</label>
-            <input type="text" placeholder="write your secret key" id="forPlainText">
-            <span class="eye-toggle"> <i class="fa fa-fw fa-eye" id="if"> </i> </span>
-            <span class="encryptInputMessage"></span>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-outline">
-                <label class="form-label" for="plainText">Write Plain Text</label>
-                <textarea class="form-control" id="plainText" rows="4"></textarea>
-              </div>
-
-              <button id="encryptButton">Encrypt It</button>
-            </div>
-
-            <div class="col-md-6">
-              <div class="form-outline">
-                <label class="form-label" for="cipherText">Cipher Text</label>
-                <textarea class="form-control" id="cipherText" rows="4"></textarea>
-              </div>
-            </div>
-
+  <body>
+    <div class="container-fluid">
+      <h2 class="header">Welcome to the NODE CryptoSystem</h2>
+      <div class="row py-3">
+        <div class="col-3" id="sticky-sidebar">
+          <div class="sticky-top">
+            <ul class="nav flex-column">
+              <li class="nav-item symmetricEncryption">
+                <a class="nav-link active" aria-current="page" href="#">
+                  <span class="symmetricEncryption">
+                    Symmetric Encryption and Decryption</span
+                  >
+                </a>
+              </li>
+              <li class="nav-item steganographyEncryption">
+                <a class="nav-link" href="#">
+                  <span class="steganographyEncryption">Stegnograph</span></a
+                >
+              </li>
+            </ul>
           </div>
         </div>
+        <div class="col" id="main">
+          <div id="symmetricEncryptionToggle1" style="display: block">
+            <!-- Symmetric Encryption for Encryption -->
+            <div class="forSymmerticEncryption">
+              <h5>Symmetric Encryption</h5>
+              <div class="form-group" style="width: 95%; margin: 0 auto">
+                <label for="">Write Your Secret key Here</label>
+                <input
+                  type="text"
+                  placeholder="write your secret key"
+                  id="forPlainText"
+                />
+                <span class="eye-toggle">
+                  <i class="fa fa-fw fa-eye" id="if"> </i>
+                </span>
+                <!-- <span class="encryptInputMessage"></span> -->
+                <label for="">Key Size in Bits</label>
+                <select class="select" id="encryptSelectBox">
+                  <option value="128">128</option>
+                  <option value="192">192</option>
+                  <option value="256">256</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label class="form-label" for="plainText"
+                      >Write Plain Text</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="plainText"
+                      rows="4"
+                    ></textarea>
+                  </div>
 
+                  <button id="encryptButton">Encrypt It</button>
+                </div>
 
-        <div class="symmetricDcryption">
-          <h6>Symmetric Decryption</h6>
-         
-          <div class="form-group" style="width: 95%; margin:0 auto;">
-            
-          
-            <label for="">Write Your Secret key Here</label>
-            <input type="text" placeholder="write your secret key" id="forCipherTextInput">
-            <span class="eye-toggle-forCipher"> <i class="fa fa-fw fa-eye" id="forCipherEye"> </i> </span>
-            <span class="decryptInputMessage"></span>
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label class="form-label" for="cipherText"
+                      >Cipher Text</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="cipherText"
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="symmetricDcryption">
+              <h5>Symmetric Decryption</h5>
+
+              <div class="form-group" style="width: 95%; margin: 0 auto">
+                <label for="">Write Your Secret key Here</label>
+                <input
+                  type="text"
+                  placeholder="write your secret key"
+                  id="forCipherTextInput"
+                />
+                <span class="eye-toggle-forCipher">
+                  <i class="fa fa-fw fa-eye" id="forCipherEye"> </i>
+                </span>
+                <!-- <span class="decryptInputMessage"></span> -->
+                <label for="">Key Size in Bits</label>
+                <select class="select" id="decryptSelectBox">
+                  <option value="128">128</option>
+                  <option value="192">192</option>
+                  <option value="256">256</option>
+                </select>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label class="form-label" for="cipherTextForD"
+                      >Write Cipher Text</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="cipherTextForD"
+                      rows="4"
+                    ></textarea>
+                  </div>
+
+                  <button id="dcryptButton">Decrypt It</button>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-outline">
+                    <label class="form-label" for="plainTextForD"
+                      >Plain Text</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="plainTextForD"
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
-          <div class="row">
-
-            <div class="col-md-6">
-              <div class="form-outline">
-                <label class="form-label" for="cipherTextForD">Write Cipher Text</label>
-                <textarea class="form-control" id="cipherTextForD" rows="4"></textarea>
+          <div
+            class="encryptionfortext"
+            id="steganographyEncryptionToggle"
+            style="display: none"
+          >
+            <h5>Encode an image</h5>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-outline">
+                  <label class="form-label" for="forImageEncryption"
+                    >Write Plain Text</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="forImageEncryption"
+                    rows="2"
+                  ></textarea>
+                </div>
               </div>
 
-              <button id="dcryptButton">Decrypt It</button>
-            </div>
+              <div class="col-md-4">
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="selectImageForEncryption"
+                />
+              </div>
 
-            <div class="col-md-6">
-              <div class="form-outline">
-                <label class="form-label" for="plainTextForD">Plain Text</label>
-                <textarea class="form-control" id="plainTextForD" rows="4"></textarea>
+              <div class="col-md-2">
+                <button id="saveImage">Save Image</button>
+              </div>
+
+              <div class="col-md-5" id="filename"></div>
+            </div>
+            <div class="container imagesShowHere">
+              <div class="row">
+                <div class="col-md-6 mt-2">
+                  <h6>Encrypted Image</h6>
+                  <canvas
+                    class="sourceImage"
+                    style="
+                      width: 400px !important;
+                      margin: 0 auto;
+                      display: block;
+                    "
+                  ></canvas>
+                  <canvas class="sourceText" style="display: none"></canvas>
+                </div>
+
+                <div class="col-md-6 mt-2">
+                  <h5>Decrypted Image</h5>
+                  <canvas
+                    id="imageCanvas2"
+                    style="
+                      width: 400px !important;
+                      margin: 0 auto;
+                      display: block;
+                    "
+                  ></canvas>
+                </div>
               </div>
             </div>
 
+            <div class="destegography">
+              <h6>Decode an image</h6>
+              <label
+                >Upload an image:<input
+                  type="file"
+                  id="selectImageForDecryption"
+                  accept="image/*"
+                />
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Here goes Text Encryption inside the Image-->
-    <div class="stegnograph">
-      <h5>Stegnograph
-        <span class="steganographyEncryption"><i class="fas fa-arrow-circle-right" id="showMe2"></i></span>
-      </h5>
-      <div class="encryptionfortext" id="steganographyEncryptionToggle" style="display: none;">
-        <h5>Encode an image</h5>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-outline">
-              <label class="form-label" for="forImageEncryption">Write Plain Text</label>
-              <textarea class="form-control" id="forImageEncryption" rows="4"></textarea>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <input type="file" accept="image/*" id="selectImageForEncryption">
-          </div>
-
-          <div class="col-md-2">
-            <button id="saveImage">Save Image</button>
-          </div>
-
-          <div class="col-md-5" id="filename">
-
-          </div>
-
-        </div>
-        <div class="container imagesShowHere">
-          <div class="row ">
-            <div class="col-md-5 mt-2">
-              <h6>Encrypted Image</h6>
-              <canvas class="sourceImage" style="width: 400px !important; margin: 0 auto; display:block"></canvas>
-              <canvas class="sourceText" style="display: none;"></canvas>
-            </div>
-
-            <div class="col-md-5 mt-2">
-              <h5>Decrypted Image</h5>
-              <canvas id="imageCanvas2" style="width: 400px !important; margin: 0 auto; display:block"></canvas>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="destegography">
-          <h6>Decode an image</h6>
-          <label>Upload an image:<input type="file" id="selectImageForDecryption" accept="image/*" />
-          </label>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <script src="./js/renderer.js"></script>
-  <script src="./js/stegography.js"></script>
-  <script src="./js/showAndHide.js"></script>
-</body>
-
+    <script src="./js/renderer.js"></script>
+    <script src="./js/stegography.js"></script>
+    <script src="./js/showAndHide.js"></script>
+  </body>
 </html>

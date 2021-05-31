@@ -36,8 +36,13 @@ const handleEncryption = function (e) {
       sourceText.width = img.width;
       sourceText.height = img.height;
 
+<<<<<<< HEAD
       // setting up font size for the Text that will be encrypted inside the image
       sourceTextCanvas.font = '20px Arial';
+=======
+      // setting font for the Text that will be encrypted
+      sourceImageCanvas.font = '35px Arial';
+>>>>>>> dropDownFunctionality
 
       // setting the text for image
       let messageText;
@@ -106,9 +111,8 @@ document.querySelector('#saveImage').addEventListener('click', function () {
   const { name: baseName, ext: extension } = path.parse(fileName.name);
   const imgUrl = sourceImage.toDataURL();
   var base64Data = imgUrl.replace(/^data:image\/png;base64,/, '');
-  const filePath = `${
-    process.env.HOME
-  }/Desktop/${baseName}${Date.now()}${extension}`;
+  // file path for saving
+  const filePath = `${process.env.HOME}/Desktop/${baseName}${Date.now()}${extension}`;
   document.querySelector('#filename').innerHTML = `<div>
   <h6>File Saved At : </h6>
   <h6 style="background-color:#03dac699; padding: 10px">${filePath}</h6>
@@ -161,3 +165,5 @@ function handleImage2(e) {
   };
   reader2.readAsDataURL(e.target.files[0]);
 }
+
+// this is new branch

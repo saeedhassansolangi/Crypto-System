@@ -4,7 +4,7 @@ const contextMenu = require('electron-context-menu');
 
 const { encryptText, dcryptHash } = require('./js/symmetricEncryption');
 
-// Add an item to the context menu that appears only when you click on an image
+// Add an item to the context menu that appears only when you right click on an image
 contextMenu({
   prepend: (params, browserWindow) => [
     {
@@ -18,6 +18,9 @@ contextMenu({
     {
       role: 'cut',
     },
+    {
+      role: 'selectAll',
+    },
   ],
 });
 
@@ -27,8 +30,9 @@ app.on('ready', () => {
   console.log('App is ready');
 
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1200,
+    height: 700,
+    resizable: true,
     icon: path.join(__dirname, 'Database-Encryption-icon.png'),
     webPreferences: {
       nodeIntegration: true,
@@ -39,20 +43,21 @@ app.on('ready', () => {
   // Loading the HTML FILE
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
+  // this "closed" event will be fired when user close the main Window
   mainWindow.on('closed', () => {
     console.log('main Window is closed');
   });
 
   let key;
   // Encrypting
-  ipcMain.on('plainText', (event, value) => {
-    const encryptedText = encryptText(value, key);
+  ipcMain.on('plainText', (event, { plainTextValue, keySize }) => {
+    const encryptedText = encryptText(plainTextValue, keySize, key);
     mainWindow.webContents.send('encryptedText', encryptedText);
   });
 
   // Dcrypting
-  ipcMain.on('cipherText', (e, value) => {
-    const plainText = dcryptHash(value, key);
+  ipcMain.on('cipherText', (e, { cipherText, keySize }) => {
+    const plainText = dcryptHash(cipherText, keySize, key);
     mainWindow.webContents.send('plainTextForD', plainText);
   });
 

@@ -1,0 +1,1 @@
+* electron packager will looks for the productName

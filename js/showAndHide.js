@@ -19,24 +19,40 @@ const divHideAndShow = [
   steganographyEncryptionToggle,
 ];
 
+// icons
+const showMeForEncryption = document.querySelector('#showMe1');
+const showMeForDecryption = document.querySelector('#showMe2');
+const iconsShowAndHide = [showMeForEncryption, showMeForDecryption];
+
 for (let i = 0; i < spanElements.length; i++) {
   spanElements[i].addEventListener('click', function (e) {
-    if (divHideAndShow[i].style.display === 'block') {
-      divHideAndShow[i].style.display = 'none';
+    if (i === 0) {
+      if (divHideAndShow[i].style.display === 'block') {
+        divHideAndShow[i].style.display = 'none';
+      } else {
+        divHideAndShow[i].style.display = 'block';
+        divHideAndShow[i + 1].style.display = 'none';
+      }
     } else {
-      divHideAndShow[i].style.display = 'block';
+      if (divHideAndShow[i].style.display === 'block') {
+        divHideAndShow[i].style.display = 'none';
+      } else {
+        divHideAndShow[i].style.display = 'block';
+        divHideAndShow[i - 1].style.display = 'none';
+      }
     }
-
-    // icons
-    const showMeForEncryption = document.querySelector('#showMe1');
-    const showMeForDecryption = document.querySelector('#showMe2');
-    const iconsShowAndHide = [showMeForEncryption, showMeForDecryption];
+    // if (divHideAndShow[i].style.display === 'block') {
+    //   divHideAndShow[i].style.display = 'none';
+    // } else {
+    //   divHideAndShow[i].style.display = 'block';
+    // }
 
     if (
       iconsShowAndHide[i].getAttribute('class') ===
       'svg-inline--fa fa-arrow-circle-right fa-w-16'
     ) {
       iconsShowAndHide[i].setAttribute('class', 'fas fa-arrow-down');
+      console.log('yes');
     } else {
       iconsShowAndHide[i].setAttribute(
         'class',
@@ -45,23 +61,3 @@ for (let i = 0; i < spanElements.length; i++) {
     }
   });
 }
-
-// showme.addEventListener('click', function (e) {
-//   if (showAndHide.style.display === 'block') {
-//     showAndHide.style.display = 'none';
-//   } else {
-//     showAndHide.style.display = 'block';
-//   }
-
-//   if (
-//     showMeTo.getAttribute('class') ===
-//     'svg-inline--fa fa-arrow-circle-right fa-w-16'
-//   ) {
-//     showMeTo.setAttribute('class', 'fas fa-arrow-circle-down');
-//   } else {
-//     showMeTo.setAttribute(
-//       'class',
-//       'svg-inline--fa fa-arrow-circle-right fa-w-16'
-//     );
-//   }
-// });
