@@ -18,16 +18,11 @@
   "author": "Saeed Hassan Solangi",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-    "electron": "^11.3.0",
     "electron-context-menu": "^2.5.0",
     "moment": "^2.29.1"
-=======
-    "electron-context-menu": "^2.5.0"
   },
   "devDependencies": {
     "electron": "^11.4.7",
     "electron-packager": "^15.2.0"
->>>>>>> dropDownFunctionality
   }
 }
