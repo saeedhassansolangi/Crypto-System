@@ -16,7 +16,6 @@ let fileName;
 
 const handleEncryption = function (e) {
   fileName = e.target.files[0];
-  // console.dir(fileForEncryption);
   const { base: filePath, ext: fileExtension } = path.parse(
     fileForEncryption.value
   );
@@ -36,13 +35,8 @@ const handleEncryption = function (e) {
       sourceText.width = img.width;
       sourceText.height = img.height;
 
-<<<<<<< HEAD
       // setting up font size for the Text that will be encrypted inside the image
       sourceTextCanvas.font = '20px Arial';
-=======
-      // setting font for the Text that will be encrypted
-      sourceImageCanvas.font = '35px Arial';
->>>>>>> dropDownFunctionality
 
       // setting the text for image
       let messageText;
@@ -70,15 +64,13 @@ const handleEncryption = function (e) {
         sourceImage.width,
         sourceImage.height
       );
-      // console.log('TEXT DATA', textData);
-      console.log(textData.data.length);
+
       let pixelsInMsg = 0;
       let pixelsOutMsg = 0;
 
       for (var i = 0; i < textData.data.length; i += 4) {
         if (textData.data[i + 3] !== 0) {
           if (imgData.data[i + 1] % 10 == 7) {
-            //do nothing, we're good
           } else if (imgData.data[i + 1] > 247) {
             imgData.data[i + 1] = 247;
           } else {
@@ -112,7 +104,9 @@ document.querySelector('#saveImage').addEventListener('click', function () {
   const imgUrl = sourceImage.toDataURL();
   var base64Data = imgUrl.replace(/^data:image\/png;base64,/, '');
   // file path for saving
-  const filePath = `${process.env.HOME}/Desktop/${baseName}${Date.now()}${extension}`;
+  const filePath = `${
+    process.env.HOME
+  }/Desktop/${baseName}${Date.now()}${extension}`;
   document.querySelector('#filename').innerHTML = `<div>
   <h6>File Saved At : </h6>
   <h6 style="background-color:#03dac699; padding: 10px">${filePath}</h6>
@@ -130,10 +124,8 @@ var imageLoader2 = document.getElementById('selectImageForDecryption');
 imageLoader2.addEventListener('change', handleImage2, false);
 
 function handleImage2(e) {
-  console.log('handle image 2');
   var reader2 = new FileReader();
   reader2.onload = function (event) {
-    console.log('reader2 loaded');
     var img2 = new Image();
     img2.onload = function () {
       console.log('img2 loaded');
@@ -166,4 +158,3 @@ function handleImage2(e) {
   reader2.readAsDataURL(e.target.files[0]);
 }
 
-// this is new branch
