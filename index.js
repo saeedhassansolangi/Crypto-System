@@ -33,7 +33,7 @@ app.on('ready', () => {
     width: 1200,
     height: 700,
     resizable: true,
-    icon: path.join(__dirname, 'Database-Encryption-icon.png'),
+    icon: path.join(__dirname, "assets", "png", 'Database-Encryption-icon.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
