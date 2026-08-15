@@ -106,7 +106,7 @@ document.querySelector('#saveImage').addEventListener('click', function () {
   // file path for saving
   const filePath = `${
     process.env.HOME
-  }/Desktop/${baseName}${Date.now()}${extension}`;
+  }/Videos/${baseName}${Date.now()}${extension}`;
   document.querySelector('#filename').innerHTML = `<div>
   <h6>File Saved At : </h6>
   <h6 style="background-color:#03dac699; padding: 10px">${filePath}</h6>
